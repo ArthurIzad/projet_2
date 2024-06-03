@@ -1,84 +1,84 @@
 let works = []
 fetch("http://localhost:5678/api/works/")
 .then((response)=>{
-    console.log(response)
+    // console.log(response)
     return response.json()
 })
 .then((data)=>{
-    console.log(data)
+    // console.log(data)
     works = data
     afficherWork()
 })
-
-
-
-function afficherWork(){
-    const galerieElement = document.querySelector(".gallery")
-
-    for(let i=0; i < works.length; i++){
-
-        const image_temporaire = works[i]
-        const ArticleElement = document.createElement("figure")
-
-        const imageElement = document.createElement("img")
-        imageElement.src = image_temporaire.imageUrl
-        ArticleElement.appendChild(imageElement)
-
-        const titleElement = document.createElement("figcaption")
-        titleElement.innerText = image_temporaire.title
-        ArticleElement.appendChild(titleElement)
-
-        galerieElement.appendChild(ArticleElement)
-
-    }
-}
-
-function afficherWork2(works){
-    const galerieElement = document.querySelector(".gallery")
-
-    for(let i=0; i < works.length; i++){
-
-        const image_temporaire = works[i]
-        const ArticleElement = document.createElement("figure")
-
-        const imageElement = document.createElement("img")
-        imageElement.src = image_temporaire.imageUrl
-        ArticleElement.appendChild(imageElement)
-
-        const titleElement = document.createElement("figcaption")
-        titleElement.innerText = image_temporaire.title
-        ArticleElement.appendChild(titleElement)
-
-        galerieElement.appendChild(ArticleElement)
-
-    }
-}
-
-
-let btn_tri = document.querySelectorALL(".mes_btn_tri input")
-console.log(btn_tri)
-
-
-btn_tri.addEventListener("click", ()=>{
-    console.log("j'ai cliqué")
-    console.log(btn_tri)
-
+.catch(()=> {
+    alert("Une erreur est survenue")
 })
 
-// btn_tri.addEventListener("click", ()=>{
-//     const images_filtrees = works.map((works)=> works.category.name)
-//     let nvlle_liste_img = []
-//     console.log(images_filtrees)
-//     console.log(btn_tri.name)
+let categories = []
+fetch("http://localhost:5678/api/categories/")
+.then((response)=>{
+    // console.log(response)
+    return response.json()
+})
+.then((data)=>{
+    // console.log(data)
+    categories = data
+    afficherCategories()
+    console.log(categories)
+})
+.catch(()=> {
+    alert("une erreur est survenue")
+})
 
-//     for(let i = 0 ; i < images_filtrees.length ; i++){
-//         if(images_filtrees[i] === btn_tri.name){
-//             nvlle_liste_img.push(works[i])
-//             console.log(nvlle_liste_img)
-//         }
-//     }
-//     document.querySelector(".gallery").innerHTML=""
-//     afficherWork2(nvlle_liste_img)
-// })
+function afficherCategories(){
+    let mes_btn_tri = document.getElementById("mes_btn_tri")
+    let btn = document.createElement("button")
+    btn.innerText = "tous"
+    mes_btn_tri.appendChild(btn)
+    btn.addEventListener("click", () => {
+        afficherWork()
+    })
+    for(let i=0 ; i < categories.length ; i++){
+        let btn = document.createElement("button")
+        btn.innerText = categories[i].name
+        mes_btn_tri.appendChild(btn)
+        btn.addEventListener("click", () => {
+            afficherWork(categories[i].id)
+        })
+
+        
+    }
+
+}
+
+
+function afficherWork(id = null){
+    const galerieElement = document.querySelector(".gallery")
+    let workstoshow = works
+    galerieElement.innerHTML = ""
+    if(id != null){
+        workstoshow = works.filter((works) => {
+            return works.categoryId == id
+
+        })
+    }
+    for(let i=0; i < workstoshow.length; i++){
+        
+        const image_temporaire = workstoshow[i]
+        const ArticleElement = document.createElement("figure")
+
+        const imageElement = document.createElement("img")
+        imageElement.src = image_temporaire.imageUrl
+        ArticleElement.appendChild(imageElement)
+
+        const titleElement = document.createElement("figcaption")
+        titleElement.innerText = image_temporaire.title
+        ArticleElement.appendChild(titleElement)
+
+        galerieElement.appendChild(ArticleElement)
+
+        
+
+    }
+}
 
 
