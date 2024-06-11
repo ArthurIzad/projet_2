@@ -82,3 +82,14 @@ function afficherWork(id = null){
 }
 
 
+
+const btn_submit = document.getElementById("btn_submit")
+let values_input = document.querySelectorAll(".input_mdp")
+
+// console.log(values_input)
+
+btn_submit.addEventListener("click", ()=> {
+    console.log("j'ai cliqué sur submit")
+    console.log(values_input.value)
+
+})
