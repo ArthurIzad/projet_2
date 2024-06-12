@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken")
+
 let works = []
 fetch("http://localhost:5678/api/works/")
 .then((response)=>{
@@ -82,14 +84,54 @@ function afficherWork(id = null){
 }
 
 
+let values_input = document.querySelectorAll(".input_log").value
+let value_test = document.getElementById("btn_test")
+// let values_input = document.querySelectorAll(".input_log").value
+
+// function login (){
+//     event.preventDefault()
+
+//     const btn_submit = document.getElementById("btn_submit")
+//     btn_submit.addEventListener("submit", (event)=> {
+//         event.preventDefault()
+//         const email = document.getElementById("email").value
+//         const mdp = document.getElementById("mdp").value
+
+//         if (email === "sophie.bluel@test.tld" && mdp ==="S0phie"){
+//             console.log("vos id sont bon")
+//             window.location.href="index.html"
+        
+//             // let message_erreur = document.create
+//         }
+//         if(email != "sophie.bluel@test.tld" && mdp != "S0phie"){
+//             console.log("Votre identifiant et votre mot de passe sont incorect")
+//             let erreur_element = document.createElement("p")
+//             erreur_element.innerText = "Votre identifiant et votre mot de passe sont incorect"
+//             btn_submit.appendChild(erreur_element)
+//         }   
+//     })
+// }
+
 
 const btn_submit = document.getElementById("btn_submit")
-let values_input = document.querySelectorAll(".input_mdp")
+const form_login = document.querySelector(".form_login")
 
-// console.log(values_input)
+    btn_submit.addEventListener("click", (event)=> {
+        event.preventDefault()
+        console.log(form_login)
+        const email = document.getElementById("email").value
+        const mdp = document.getElementById("mdp").value
 
-btn_submit.addEventListener("click", ()=> {
-    console.log("j'ai cliqué sur submit")
-    console.log(values_input.value)
-
-})
+        if (email === "sophie.bluel@test.tld" && mdp ==="S0phie"){
+            console.log("vos id sont bon")
+            window.location.href="index.html"
+        
+            // let message_erreur = document.create
+        }
+        if(email != "sophie.bluel@test.tld" && mdp != "S0phie"){
+            console.log("Votre identifiant et votre mot de passe sont incorect")
+            let erreur_element = document.createElement("p")
+            erreur_element.innerText = `Votre identifiant et votre mot de passe sont incorect`
+            form_login.appendChild(erreur_element)
+        }   
+    })
