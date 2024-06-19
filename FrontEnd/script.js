@@ -1,4 +1,5 @@
-const jwt = require("jsonwebtoken")
+// import { login } from "login.js"
+
 
 let works = []
 fetch("http://localhost:5678/api/works/")
@@ -25,16 +26,30 @@ fetch("http://localhost:5678/api/categories/")
     // console.log(data)
     categories = data
     afficherCategories()
-    console.log(categories)
+    // console.log(categories)
 })
 .catch(()=> {
     alert("une erreur est survenue")
 })
 
+
+
+// let login = []
+// fetch("http://localhost:5678/api/users/login", {
+//     method: "POST",
+//     headers:{"Content-type": "application/json"},
+//     body: '{"email": "sophie.bluel@test.tld"}',
+//     body: '{"password": "S0phie"}',
+// })
+
+
+
+
+
 function afficherCategories(){
     let mes_btn_tri = document.getElementById("mes_btn_tri")
     let btn = document.createElement("button")
-    btn.innerText = "tous"
+    btn.innerText = "Tous"
     mes_btn_tri.appendChild(btn)
     btn.addEventListener("click", () => {
         afficherWork()
@@ -46,10 +61,7 @@ function afficherCategories(){
         btn.addEventListener("click", () => {
             afficherWork(categories[i].id)
         })
-
-        
     }
-
 }
 
 
@@ -77,61 +89,20 @@ function afficherWork(id = null){
         ArticleElement.appendChild(titleElement)
 
         galerieElement.appendChild(ArticleElement)
-
-        
-
     }
 }
 
 
-let values_input = document.querySelectorAll(".input_log").value
-let value_test = document.getElementById("btn_test")
-// let values_input = document.querySelectorAll(".input_log").value
 
-// function login (){
-//     event.preventDefault()
 
-//     const btn_submit = document.getElementById("btn_submit")
-//     btn_submit.addEventListener("submit", (event)=> {
-//         event.preventDefault()
-//         const email = document.getElementById("email").value
-//         const mdp = document.getElementById("mdp").value
 
-//         if (email === "sophie.bluel@test.tld" && mdp ==="S0phie"){
-//             console.log("vos id sont bon")
-//             window.location.href="index.html"
-        
-//             // let message_erreur = document.create
-//         }
-//         if(email != "sophie.bluel@test.tld" && mdp != "S0phie"){
-//             console.log("Votre identifiant et votre mot de passe sont incorect")
-//             let erreur_element = document.createElement("p")
-//             erreur_element.innerText = "Votre identifiant et votre mot de passe sont incorect"
-//             btn_submit.appendChild(erreur_element)
-//         }   
-//     })
-// }
 
 
 const btn_submit = document.getElementById("btn_submit")
-const form_login = document.querySelector(".form_login")
 
-    btn_submit.addEventListener("click", (event)=> {
-        event.preventDefault()
-        console.log(form_login)
-        const email = document.getElementById("email").value
-        const mdp = document.getElementById("mdp").value
 
-        if (email === "sophie.bluel@test.tld" && mdp ==="S0phie"){
-            console.log("vos id sont bon")
-            window.location.href="index.html"
-        
-            // let message_erreur = document.create
-        }
-        if(email != "sophie.bluel@test.tld" && mdp != "S0phie"){
-            console.log("Votre identifiant et votre mot de passe sont incorect")
-            let erreur_element = document.createElement("p")
-            erreur_element.innerText = `Votre identifiant et votre mot de passe sont incorect`
-            form_login.appendChild(erreur_element)
-        }   
-    })
+
+let values_input = document.querySelectorAll(".input_log").value
+let value_test = document.getElementById("btn_test")
+
+

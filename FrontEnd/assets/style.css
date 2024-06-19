@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background-color: rgb(236, 223, 206);
+	/* background-color: rgb(236, 223, 206); */
 }
 ol, ul {
 	list-style: none;
@@ -94,6 +94,17 @@ nav ul {
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
+	color: black;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover{
+	color: #B1663C;
+
 }
 
 li:hover {
@@ -176,9 +187,12 @@ input[type="submit"]{
 	color: white;
 	background-color: #1D6154;
 	margin : 2em auto ;
+	padding-top: 7px;
+	padding-bottom: 7px;
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	border: transparent;
 }
 
 footer nav ul {
@@ -201,4 +215,53 @@ footer nav ul {
 
 }
 
+.mes_btn_tri{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 50px;
+	padding-left: 20%;
+	padding-right: 20%;
+}
 
+.mes_btn_tri button{
+	display: flex;
+	font-family: 'Syne';
+	font-weight: 700;
+	color: #1D6154;
+	background-color: white;
+	text-align: center;
+	border: solid 1px;
+	border-radius: 60px;
+	border-color:  #1D6154;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+
+.mes_btn_tri button:hover{
+	background-color: #1D6154;
+	color: white;
+}
+
+
+
+/*********** page login ****************/
+
+.input_log{
+	width: 379px;
+	height: 35px;
+	margin-bottom: 30px;
+	border: transparent;
+	box-shadow: 0px 4px 14px ;
+}
+
+.form_login label{
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: 10px;
+
+}
