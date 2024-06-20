@@ -1,4 +1,3 @@
-// import { login } from "login.js"
 
 
 let works = []
@@ -26,21 +25,10 @@ fetch("http://localhost:5678/api/categories/")
     // console.log(data)
     categories = data
     afficherCategories()
-    // console.log(categories)
 })
 .catch(()=> {
     alert("une erreur est survenue")
 })
-
-
-
-// let login = []
-// fetch("http://localhost:5678/api/users/login", {
-//     method: "POST",
-//     headers:{"Content-type": "application/json"},
-//     body: '{"email": "sophie.bluel@test.tld"}',
-//     body: '{"password": "S0phie"}',
-// })
 
 
 
