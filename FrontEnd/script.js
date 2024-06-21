@@ -10,6 +10,7 @@ fetch("http://localhost:5678/api/works/")
     // console.log(data)
     works = data
     afficherWork()
+    afficherWorkModal()
 })
 .catch(()=> {
     alert("Une erreur est survenue")
@@ -86,11 +87,29 @@ function afficherWork(id = null){
 
 
 
-const btn_submit = document.getElementById("btn_submit")
+function afficherWorkModal(id = null){
+    const galerieElement = document.querySelector(".gallery_modal")
+    let workstoshow = works
+    galerieElement.innerHTML = ""
+    if(id != null){
+        workstoshow = works.filter((works) => {
+            return works.categoryId == id
 
+        })
+    }
+    for(let i=0; i < workstoshow.length; i++){
+        
+        const image_temporaire = workstoshow[i]
+        const ArticleElement = document.createElement("figure")
 
+        const imageElement = document.createElement("img")
+        imageElement.src = image_temporaire.imageUrl
+        ArticleElement.appendChild(imageElement)
 
-let values_input = document.querySelectorAll(".input_log").value
-let value_test = document.getElementById("btn_test")
+        
+        galerieElement.appendChild(ArticleElement)
+    }
+}
+
 
 
