@@ -44,7 +44,7 @@
 	<section id="portfolio">
 		<div class="txt_projet">
 			<h2 class="title_project" id="title_project">Mes Projets</h2>
-			<a href="#modal1" class="js_modal"><i class="fa-solid fa-pen-to-square"></i>modifier</a>
+			<a href="#modal1" class="js_modal"><i class="fa-regular fa-pen-to-square"></i>modifier</a>
 		</div>
 		
 		<div class="mes_btn_tri" id="mes_btn_tri">
@@ -134,14 +134,22 @@
 					<h3>Ajout photo</h3>
 					<div class="add_pic">
 						<i class="fa-regular fa-image"></i>
-						<button class="btn_add_pic">+ Ajouter photo</button>
+						<input type="file" accept="image/png, image/jpg" placeholder="+ Ajouter une photo" class="btn_add_pic" id="btn_add_pic" name="test">
+						<!-- <button class="btn_add_pic">+ Ajouter photo</button> -->
 						<p>jpg, png : 4mo max</p>
 					</div>
 					<form action="#" class="form_add_pic">
 						<label for="titre">Titre</label>
 						<input type="text" name="titre" id="">
 						<label for="categorie">Catégorie</label>
-						<input type="text" name="categorie" id="">
+						<select name="categorie" id="modal_select" class="modal_select">
+							<!-- <option value=""></option> -->
+							<!-- <option value="objets">Objets</option>
+							<option value="appartements">Appartements</option>
+							<option value="hotels_restaurants">Hotels & restaurants</option> -->
+
+						</select>
+						<!-- <input type="text" name="categorie" id=""> -->
 						<button class="apply_button">Valider</button>
 					</form>
 					

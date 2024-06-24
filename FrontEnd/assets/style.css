@@ -274,10 +274,20 @@ footer nav ul {
 .txt_projet{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
-	align-items: center;
+	justify-content: center;
+	align-items: baseline;
 }
 
+.txt_projet a{
+	display: flex;
+	margin-left: 30px;
+	flex-direction: row;
+
+}
+
+.txt_projet i{
+	padding-right: 7px;
+}
 
 /*********** modale **************/
 

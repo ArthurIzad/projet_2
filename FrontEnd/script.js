@@ -1,4 +1,4 @@
-
+// const app = require("../Backend/app")
 
 let works = []
 fetch("http://localhost:5678/api/works/")
@@ -26,6 +26,7 @@ fetch("http://localhost:5678/api/categories/")
     // console.log(data)
     categories = data
     afficherCategories()
+    afficherOption()
 })
 .catch(()=> {
     alert("une erreur est survenue")
@@ -50,6 +51,17 @@ function afficherCategories(){
         btn.addEventListener("click", () => {
             afficherWork(categories[i].id)
         })
+    }
+}
+
+function afficherOption(){
+    let select = document.getElementById("modal_select")
+    let option_vide = document.createElement("option")
+    select.appendChild(option_vide)
+    for(let i=0 ; i < categories.length ; i++){
+        let option = document.createElement("option")
+        option.innerText = categories[i].name
+        select.appendChild(option)
     }
 }
 
@@ -84,9 +96,6 @@ function afficherWork(id = null){
 
 
 
-
-
-
 function afficherWorkModal(id = null){
     const galerieElement = document.querySelector(".gallery_modal")
     let workstoshow = works
@@ -106,10 +115,84 @@ function afficherWorkModal(id = null){
         imageElement.src = image_temporaire.imageUrl
         ArticleElement.appendChild(imageElement)
 
+        const btnTrashCanElement = document.createElement("button")
+        btnTrashCanElement.setAttribute("class", "btn_trash_can")
+
+        ArticleElement.appendChild(btnTrashCanElement)
+
+
+        const trashCanElement = document.createElement("i")
+        trashCanElement.setAttribute("class", "fa-regular fa-trash-can")
+        btnTrashCanElement.appendChild(trashCanElement)
         
         galerieElement.appendChild(ArticleElement)
     }
+    deletePic()
+
 }
 
 
 
+
+
+function deletePic(){
+    const token = window.localStorage.getItem("token")
+    const btn_trash_can = document.querySelectorAll(".btn_trash_can")
+    for(let i=0; i < btn_trash_can.length; i++){
+        btn_trash_can[i].addEventListener("click", ()=>{
+            // console.log(works[i].id)
+            // console.log(token)
+            const chargeUtile = works[i].id
+            // console.log(chargeUtile)
+            fetch(`http://localhost:5678/api/works/${chargeUtile}`, {
+                method:"DELETE",
+                headers:{
+                    "accept": "text/html",
+                    "authorization": `bearer ${token}`
+                }
+                
+            })
+        })
+
+    }
+    
+}
+deletePic()
+
+function addPic(){
+    const token = window.localStorage.getItem("token")
+    const apply_button = document.querySelector(".apply_button")
+    apply_button.addEventListener("click", (e)=>{
+        e.preventDefault()
+        const titre = document.querySelector("input[name='titre']").value
+        const categorie = document.querySelector("select[name='categorie']").value
+        const photo = document.getElementById("btn_add_pic")
+        console.log(photo)
+        console.log(photo.name)
+        console.log(photo.value)
+
+
+        let id_photo = {
+            image: photo,
+            title: titre,
+            category: categorie
+        }
+        console.log(id_photo)
+        let chargeUtile = JSON.stringify(id_photo)
+        console.log(chargeUtile)
+        fetch("http://localhost:5678/api/works", {
+            method:"POST",
+            headers:{
+                "accept": "application/json",
+                "Content-Type": "multipart/form-data",
+                "authorization": `bearer ${token}`
+            },
+            body: chargeUtile
+        })
+
+        
+    })
+
+    
+}
+addPic()
