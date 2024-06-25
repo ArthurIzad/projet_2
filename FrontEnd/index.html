@@ -9,7 +9,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
 	<link rel="stylesheet" href="./assets/style.css">
 	<script type="module" src="script.js" defer></script>
 	<!-- <script src="login.js" defer></script> -->
@@ -132,13 +131,14 @@
 				</div>
 				<div class="main_modal_2">
 					<h3>Ajout photo</h3>
-					<div class="add_pic">
-						<i class="fa-regular fa-image"></i>
-						<input type="file" accept="image/png, image/jpg" placeholder="+ Ajouter une photo" class="btn_add_pic" id="btn_add_pic">
-						<!-- <button class="btn_add_pic">+ Ajouter photo</button> -->
-						<p>jpg, png : 4mo max</p>
-					</div>
-					<form action="#" class="form_add_pic">
+					
+					<form action="#" method="post" class="form_add_pic" enctype="multipart/form-data">
+						<div class="add_pic">
+							<i class="fa-regular fa-image"></i>
+							<input type="file" name="btn_add_pic" accept="image/png, image/jpg" class="btn_add_pic" id="btn_add_pic">
+							<!-- <button class="btn_add_pic">+ Ajouter photo</button> -->
+							<label for="btn_add_pic">jpg, png : 4mo max</label>
+						</div>
 						<label for="titre">Titre</label>
 						<input type="text" name="titre" id="">
 						<label for="categorie">Catégorie</label>
@@ -149,8 +149,8 @@
 							<option value="hotels_restaurants">Hotels & restaurants</option> -->
 
 						</select>
-						<!-- <input type="text" name="categorie" id=""> -->
-						<button class="apply_button">Valider</button>
+						<input type="submit" value="Valider" class="apply_button">
+						<!-- <button onclick="addPic(e)" class="apply_button">Valider</button> -->
 					</form>
 					
 				</div>

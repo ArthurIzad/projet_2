@@ -9,11 +9,12 @@ fetch("http://localhost:5678/api/works/")
 .then((data)=>{
     // console.log(data)
     works = data
+
     afficherWork()
     afficherWorkModal()
 })
 .catch(()=> {
-    alert("Une erreur est survenue")
+    alert("Une erreur dans le chargement des images est survenue")
 })
 
 let categories = []
@@ -25,11 +26,12 @@ fetch("http://localhost:5678/api/categories/")
 .then((data)=>{
     // console.log(data)
     categories = data
+
     afficherCategories()
     afficherOption()
 })
 .catch(()=> {
-    alert("une erreur est survenue")
+    alert("une erreur dans le chargement des catégories est survenue")
 })
 
 
@@ -61,6 +63,7 @@ function afficherOption(){
     for(let i=0 ; i < categories.length ; i++){
         let option = document.createElement("option")
         option.innerText = categories[i].name
+        option.setAttribute("value", `${categories[i].id}`)
         select.appendChild(option)
     }
 }
@@ -139,7 +142,8 @@ function deletePic(){
     const token = window.localStorage.getItem("token")
     const btn_trash_can = document.querySelectorAll(".btn_trash_can")
     for(let i=0; i < btn_trash_can.length; i++){
-        btn_trash_can[i].addEventListener("click", ()=>{
+        btn_trash_can[i].addEventListener("click", (e)=>{
+            e.preventDefault
             // console.log(works[i].id)
             // console.log(token)
             const chargeUtile = works[i].id
@@ -153,46 +157,58 @@ function deletePic(){
                 
             })
         })
-
     }
-    
 }
 deletePic()
+
+
 
 function addPic(){
     const token = window.localStorage.getItem("token")
     const apply_button = document.querySelector(".apply_button")
-    apply_button.addEventListener("click", (e)=>{
-        e.preventDefault()
+    const form_apply_button = document.querySelector(".form_add_pic")
+
+    form_apply_button.addEventListener("submit", ()=>{
+        event.preventDefault()
+
         const titre = document.querySelector("input[name='titre']").value
         const categorie = document.querySelector("select[name='categorie']").value
-        const photo = document.getElementById("btn_add_pic")
-        console.log(photo)
-        console.log(photo.name)
-        console.log(photo.value)
+        const photo = document.getElementById("btn_add_pic").files[0]
+    
+        let formData = new FormData()
+        formData.append("image", photo)
+        formData.append("title", titre)
+        formData.append("category", categorie)
 
-
-        let id_photo = {
-            image: photo,
-            title: titre,
-            category: categorie
-        }
-        console.log(id_photo)
-        let chargeUtile = JSON.stringify(id_photo)
-        console.log(chargeUtile)
+        let image_poste =[]
         fetch("http://localhost:5678/api/works", {
-            method:"POST",
+            method: "POST",
             headers:{
                 "accept": "application/json",
-                "Content-Type": "multipart/form-data",
                 "authorization": `bearer ${token}`
             },
-            body: chargeUtile
+            body: formData
+            
         })
+        .then((response)=>{
+            console.log(response)
+            return response.json()
+        })
+        .then((data)=>{
+            console.log(data)
+            image_poste = data
+            afficherWork()
+            afficherWorkModal()
+        })
+        .catch(()=> {
+            alert("Une erreur dans l'ajout d'image est survenue")
+        })
+        // event.preventDefault()
 
-        
+        console.log("la page ne s'est pas rechargée")
     })
-
-    
 }
 addPic()
+
+
+// "Content-Type": "multipart/form-data",
