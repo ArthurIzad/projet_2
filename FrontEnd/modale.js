@@ -1,7 +1,5 @@
 let modal = null
 
-
-
 const switchPanel = function (e) {
     e.preventDefault()
     const mes_page_modal = document.querySelectorAll(".page_modal")

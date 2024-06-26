@@ -58,6 +58,7 @@ body {
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background-color: #FFFEF8;
 }
 header {
 	display: flex;
@@ -213,17 +214,12 @@ footer nav ul {
 }
 
 
-.form_login{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 
-}
 
 .mes_btn_tri{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: center;
 	margin-bottom: 50px;
 	padding-left: 20%;
 	padding-right: 20%;
@@ -243,6 +239,7 @@ footer nav ul {
 	padding-bottom: 7px;
 	padding-left: 25px;
 	padding-right: 25px;
+	margin-right: 8px;
 }
 
 
@@ -255,12 +252,31 @@ footer nav ul {
 
 /*********** page login ****************/
 
+.main_login{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.form_login{
+	width: 35%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-self: center;
+
+}
+
 .input_log{
-	width: 379px;
+	/* width: 379px; */
+	width: -moz-available;
+    width: -webkit-fill-available;
 	height: 35px;
 	margin-bottom: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
 	border: transparent;
-	box-shadow: 0px 4px 14px ;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 .form_login label{
@@ -297,7 +313,7 @@ footer nav ul {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.3);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -318,7 +334,7 @@ footer nav ul {
 .gallery_modal{
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	margin-left: 60px;
 	margin-right: 60px;
 
@@ -391,7 +407,10 @@ footer nav ul {
 	align-items: center;
 	/* justify-content: center; */
 	flex-direction: column;
+}
 
+.main_modal_2 h3{
+	margin-bottom: 30px;
 }
 
 .add_pic{
@@ -401,10 +420,12 @@ footer nav ul {
 	width: 420px;
 	height: 169px;
 	background-color: #E8F1F6;
+	margin-bottom: 30px;
 }
 
 .add_pic i{
 	font-size: 100px;
+	color: #B9C5CC;
 }
 
 .form_add_pic{
@@ -413,3 +434,25 @@ footer nav ul {
 	align-items: center;
 }
 
+#label_add_pic{
+	display: flex;
+	align-self: center;
+	margin-top: 7px;
+}
+
+.form_add_pic label{
+	display: flex;
+	justify-content: flex-start;
+	margin-top: 10xp;
+	margin-bottom: 3px;
+	align-self: flex-start;
+}
+
+.apply_button{
+	width: 237px;
+	height: 36px;
+	color: white;
+	border-radius: 60px;
+	background-color: #a7a7a7;
+	font-size: 20px;
+}

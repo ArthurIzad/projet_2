@@ -35,7 +35,7 @@
 		<article>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
-			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l'esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
@@ -137,20 +137,23 @@
 							<i class="fa-regular fa-image"></i>
 							<input type="file" name="btn_add_pic" accept="image/png, image/jpg" class="btn_add_pic" id="btn_add_pic">
 							<!-- <button class="btn_add_pic">+ Ajouter photo</button> -->
-							<label for="btn_add_pic">jpg, png : 4mo max</label>
+							<label for="btn_add_pic" id="label_add_pic">jpg, png : 4mo max</label>
 						</div>
 						<label for="titre">Titre</label>
-						<input type="text" name="titre" id="">
+						<input type="text" name="titre" class="input_log">
 						<label for="categorie">Catégorie</label>
-						<select name="categorie" id="modal_select" class="modal_select">
+						<select name="categorie" id="modal_select" class="modal_select input_log">
 							<!-- <option value=""></option> -->
 							<!-- <option value="objets">Objets</option>
 							<option value="appartements">Appartements</option>
 							<option value="hotels_restaurants">Hotels & restaurants</option> -->
 
 						</select>
-						<input type="submit" value="Valider" class="apply_button">
-						<!-- <button onclick="addPic(e)" class="apply_button">Valider</button> -->
+						<div class="change_button_parent">
+							<input type="submit" value="Valider" class="apply_button">
+							<!-- <button class="apply_button" type="submit">Valider</button> -->
+						</div>
+							
 					</form>
 					
 				</div>
