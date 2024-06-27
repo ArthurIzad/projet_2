@@ -26,7 +26,21 @@ const openModal = function(e) {
     
 }
 
-const closeModal = function(e) {
+// export const closeModal = function(e) {
+//     if (modal === null) return
+//     e.preventDefault()
+//     modal.style.display = "none"
+//     modal.removeEventListener("click", closeModal)
+//     modal.querySelectorAll(".close_button").forEach(button =>{
+//         button.removeEventListener("click", closeModal)
+//     })
+//     modal.querySelector(".modal_stop").removeEventListener("click", stopPropagation)
+//     modal = null
+
+// }
+
+
+export function closeModal(e) {
     if (modal === null) return
     e.preventDefault()
     modal.style.display = "none"

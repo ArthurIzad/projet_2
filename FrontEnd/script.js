@@ -1,4 +1,4 @@
-// import { closeModal } from "./modale"
+import { closeModal } from "./modale.js"
 
 // const app = require("../Backend/app")
 
@@ -145,10 +145,13 @@ function deletePic(){
     for(let i=0; i < btn_trash_can.length; i++){
         btn_trash_can[i].addEventListener("click", (e)=>{
             e.preventDefault
-            // console.log(works[i].id)
-            // console.log(token)
-            const chargeUtile = works[i].id
+            let chargeUtile = works[i].id
             // console.log(chargeUtile)
+            // console.log(works[i])
+            // let urlDel = document.querySelector(`.gallery figure img[src='${works[i].imageUrl}']`)
+            // console.log(urlDel)
+            // console.log(urlDel.parentElement)
+
             fetch(`http://localhost:5678/api/works/${chargeUtile}`, {
                 method:"DELETE",
                 headers:{
@@ -157,7 +160,24 @@ function deletePic(){
                 }
             })
             .then(()=>{
-                closeModal
+                let urlDel = document.querySelector(`.gallery figure img[src='${works[i].imageUrl}']`)
+                console.log(urlDel)
+                let parent_urlDel = urlDel.parentElement
+                console.log(parent_urlDel)
+                parent_urlDel.setAttribute("style", "display: none;")
+                console.log("none")
+            })
+            .then(()=>{
+                let urlDelModal = document.querySelector(`.gallery_modal img[src='${works[i].imageUrl}']`)
+                console.log(urlDelModal)
+                let parent_urlDel_Modal = urlDelModal.parentElement
+                console.log(parent_urlDel_Modal)
+                parent_urlDel_Modal.setAttribute("style", "display: none;")
+                console.log("none")
+
+            })
+            .catch(()=>{
+                alert("Une erreur dans la délétion d'image est survenue")
             })
             
         })
@@ -169,7 +189,7 @@ deletePic()
 
 function addPic(){
     const token = window.localStorage.getItem("token")
-    const apply_button = document.querySelector(".apply_button")
+    // const apply_button = document.querySelector(".apply_button")
     const form_apply_button = document.querySelector(".form_add_pic")
     // e.preventDefault()
 
@@ -185,7 +205,7 @@ function addPic(){
         formData.append("title", titre)
         formData.append("category", categorie)
 
-        let image_poste =[]
+        let new_pic =[]
         fetch("http://localhost:5678/api/works", {
             method: "POST",
             headers:{
@@ -196,24 +216,79 @@ function addPic(){
             
         })
         .then((response)=>{
-            afficherWork()
-
-            console.log(response)
+            // console.log(response)
             return response.json()
+
         })
         .then((data)=>{
-            console.log(data)
-            image_poste = data
-            afficherWorkModal()
+            // console.log(data)
+            new_pic = data
+            // add_new_pic()
+        })
+        .then(()=>{
+            const galerieElement = document.querySelector(".gallery")
+            const ArticleElement = document.createElement("figure")
+
+            const imageElement = document.createElement("img")
+            imageElement.src = new_pic.imageUrl
+            ArticleElement.appendChild(imageElement)
+
+            const titleElement = document.createElement("figcaption")
+            titleElement.innerText = new_pic.title
+            ArticleElement.appendChild(titleElement)
+
+            galerieElement.appendChild(ArticleElement)
+
+            closeModal(e)
+
+        })
+        .then(()=>{
+            const galerieElementModale = document.querySelector(".gallery_modal")
+            const ArticleElementModale = document.createElement("figure")
+
+            const imageElementModale = document.createElement("img")
+            imageElementModale.src = new_pic.imageUrl
+            ArticleElementModale.appendChild(imageElementModale)
+
+            const btnTrashCanElementModale = document.createElement("button")
+            btnTrashCanElementModale.setAttribute("class", "btn_trash_can")
+
+            ArticleElementModale.appendChild(btnTrashCanElementModale)
+
+
+            const trashCanElementModale = document.createElement("i")
+            trashCanElementModale.setAttribute("class", "fa-regular fa-trash-can")
+            btnTrashCanElementModale.appendChild(trashCanElementModale)
+            
+            galerieElementModale.appendChild(ArticleElementModale)
+
         })
         .catch(()=> {
             alert("Une erreur dans l'ajout d'image est survenue")
         })
-        // e.preventDefault()
-
-        console.log("la page ne s'est pas rechargée")
-
     })
 }
 addPic()
+
+// fonction qui ne marche pas car new_pic n'est pas défini dedans
+// function add_new_pic(){
+//     // const image_temporaire = workstoshow[i]
+//     console.log("1")
+//     // console.log(new_pic)
+//     const galerieElement = document.querySelector(".gallery")
+//     const ArticleElement = document.createElement("figure")
+//     console.log("2")
+
+
+//     const imageElement = document.createElement("img")
+//     imageElement.src = new_pic.imageUrl
+//     ArticleElement.appendChild(imageElement)
+
+//     const titleElement = document.createElement("figcaption")
+//     titleElement.innerText = new_pic.title
+//     ArticleElement.appendChild(titleElement)
+
+//     galerieElement.appendChild(ArticleElement)
+
+// }
 
