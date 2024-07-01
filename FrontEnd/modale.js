@@ -1,6 +1,6 @@
 let modal = null
 
-const switchPanel = function (e) {
+export function switchPanel(e) {
     e.preventDefault()
     const mes_page_modal = document.querySelectorAll(".page_modal")
     for (let i = 0 ; i < mes_page_modal.length ; i++ ){

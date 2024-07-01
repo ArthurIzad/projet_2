@@ -1,23 +1,28 @@
-import { closeModal } from "./modale.js"
+import { switchPanel } from "./modale.js"
 
 // const app = require("../Backend/app")
 
 let works = []
-fetch("http://localhost:5678/api/works/")
-.then((response)=>{
-    // console.log(response)
-    return response.json()
-})
-.then((data)=>{
-    // console.log(data)
-    works = data
 
-    afficherWork()
-    afficherWorkModal()
-})
-.catch(()=> {
-    alert("Une erreur dans le chargement des images est survenue")
-})
+function getWorks(){
+    fetch("http://localhost:5678/api/works/")
+    .then((response)=>{
+        // console.log(response)
+        return response.json()
+    })
+    .then((data)=>{
+        // console.log(data)
+        works = data
+
+        afficherWork()
+        afficherWorkModal()
+    })
+    .catch(()=> {
+        alert("Une erreur dans le chargement des images est survenue")
+    })
+
+}
+getWorks()
 
 let categories = []
 fetch("http://localhost:5678/api/categories/")
@@ -132,10 +137,7 @@ function afficherWorkModal(id = null){
         galerieElement.appendChild(ArticleElement)
     }
     deletePic()
-
 }
-
-
 
 
 
@@ -146,12 +148,6 @@ function deletePic(){
         btn_trash_can[i].addEventListener("click", (e)=>{
             e.preventDefault
             let chargeUtile = works[i].id
-            // console.log(chargeUtile)
-            // console.log(works[i])
-            // let urlDel = document.querySelector(`.gallery figure img[src='${works[i].imageUrl}']`)
-            // console.log(urlDel)
-            // console.log(urlDel.parentElement)
-
             fetch(`http://localhost:5678/api/works/${chargeUtile}`, {
                 method:"DELETE",
                 headers:{
@@ -160,21 +156,7 @@ function deletePic(){
                 }
             })
             .then(()=>{
-                let urlDel = document.querySelector(`.gallery figure img[src='${works[i].imageUrl}']`)
-                console.log(urlDel)
-                let parent_urlDel = urlDel.parentElement
-                console.log(parent_urlDel)
-                parent_urlDel.setAttribute("style", "display: none;")
-                console.log("none")
-            })
-            .then(()=>{
-                let urlDelModal = document.querySelector(`.gallery_modal img[src='${works[i].imageUrl}']`)
-                console.log(urlDelModal)
-                let parent_urlDel_Modal = urlDelModal.parentElement
-                console.log(parent_urlDel_Modal)
-                parent_urlDel_Modal.setAttribute("style", "display: none;")
-                console.log("none")
-
+                getWorks()
             })
             .catch(()=>{
                 alert("Une erreur dans la délétion d'image est survenue")
@@ -189,9 +171,7 @@ deletePic()
 
 function addPic(){
     const token = window.localStorage.getItem("token")
-    // const apply_button = document.querySelector(".apply_button")
     const form_apply_button = document.querySelector(".form_add_pic")
-    // e.preventDefault()
 
     form_apply_button.addEventListener("submit", (e)=>{
         e.preventDefault()
@@ -199,6 +179,12 @@ function addPic(){
         const titre = document.querySelector("input[name='titre']").value
         const categorie = document.querySelector("select[name='categorie']").value
         const photo = document.getElementById("btn_add_pic").files[0]
+        
+
+        if(!titre || !categorie || !photo){
+            // mon message d'erreur
+            return 
+        }
     
         let formData = new FormData()
         formData.append("image", photo)
@@ -213,54 +199,10 @@ function addPic(){
                 "authorization": `bearer ${token}`
             },
             body: formData
-            
-        })
-        .then((response)=>{
-            // console.log(response)
-            return response.json()
-
-        })
-        .then((data)=>{
-            // console.log(data)
-            new_pic = data
-            // add_new_pic()
         })
         .then(()=>{
-            const galerieElement = document.querySelector(".gallery")
-            const ArticleElement = document.createElement("figure")
-
-            const imageElement = document.createElement("img")
-            imageElement.src = new_pic.imageUrl
-            ArticleElement.appendChild(imageElement)
-
-            const titleElement = document.createElement("figcaption")
-            titleElement.innerText = new_pic.title
-            ArticleElement.appendChild(titleElement)
-
-            galerieElement.appendChild(ArticleElement)
-
-            closeModal(e)
-
-        })
-        .then(()=>{
-            const galerieElementModale = document.querySelector(".gallery_modal")
-            const ArticleElementModale = document.createElement("figure")
-
-            const imageElementModale = document.createElement("img")
-            imageElementModale.src = new_pic.imageUrl
-            ArticleElementModale.appendChild(imageElementModale)
-
-            const btnTrashCanElementModale = document.createElement("button")
-            btnTrashCanElementModale.setAttribute("class", "btn_trash_can")
-
-            ArticleElementModale.appendChild(btnTrashCanElementModale)
-
-
-            const trashCanElementModale = document.createElement("i")
-            trashCanElementModale.setAttribute("class", "fa-regular fa-trash-can")
-            btnTrashCanElementModale.appendChild(trashCanElementModale)
-            
-            galerieElementModale.appendChild(ArticleElementModale)
+            getWorks()
+            switchPanel(e)
 
         })
         .catch(()=> {
@@ -270,25 +212,17 @@ function addPic(){
 }
 addPic()
 
-// fonction qui ne marche pas car new_pic n'est pas défini dedans
-// function add_new_pic(){
-//     // const image_temporaire = workstoshow[i]
-//     console.log("1")
-//     // console.log(new_pic)
-//     const galerieElement = document.querySelector(".gallery")
-//     const ArticleElement = document.createElement("figure")
-//     console.log("2")
 
 
-//     const imageElement = document.createElement("img")
-//     imageElement.src = new_pic.imageUrl
-//     ArticleElement.appendChild(imageElement)
+function preview() {
+    const input = document.getElementById('btn_add_pic')
+    let logo = document.getElementById("logo_preview")
+    let preview = document.getElementById("form-image-preview")
 
-//     const titleElement = document.createElement("figcaption")
-//     titleElement.innerText = new_pic.title
-//     ArticleElement.appendChild(titleElement)
-
-//     galerieElement.appendChild(ArticleElement)
-
-// }
-
+    input.addEventListener('change', ()=>{
+        logo.style.display = "none"
+        preview.setAttribute('style', 'null')
+        preview.src = URL.createObjectURL(input.files[0])
+    })
+}
+preview()
