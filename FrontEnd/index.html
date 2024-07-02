@@ -105,7 +105,7 @@
 			<input type="email" name="email" id="email">
 			<label for="message">Message</label>
 			<textarea name="message" id="message" cols="30" rows="10"></textarea>
-			<input type="submit" value="Envoyer">
+			<input type="submit" value="Envoyer" class="submit_valid">
 		</form>
 	</section>
 
@@ -141,9 +141,9 @@
 							<label for="btn_add_pic" id="label_add_pic">jpg, png : 4mo max</label>
 						</div>
 						<label for="titre">Titre</label>
-						<input type="text" name="titre" class="input_log">
+						<input type="text" name="titre" class="input_log input_titre">
 						<label for="categorie">Catégorie</label>
-						<select name="categorie" id="modal_select" class="modal_select input_log">
+						<select name="categorie" id="modal_select" class="modal_select input_log input_categorie">
 							<!-- <option value=""></option> -->
 							<!-- <option value="objets">Objets</option>
 							<option value="appartements">Appartements</option>
@@ -151,8 +151,10 @@
 
 						</select>
 						<div class="change_button_parent">
-							<input type="submit" value="Valider" class="apply_button">
+							<input type="submit" value="Valider" class="apply_button" style="background-color: #a7a7a7;">
 							<!-- <button class="apply_button" type="submit">Valider</button> -->
+						</div>
+						<div class="mdp_oublie">
 						</div>
 							
 					</form>

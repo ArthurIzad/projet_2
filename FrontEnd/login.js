@@ -7,10 +7,6 @@ function IDtoken (){
         let mon_email = document.getElementById("email").value
         let mon_mdp = document.getElementById("mdp").value
 
-        // let les_log = {
-        //     email: event.target.querySelector("input[name=email]").value,
-        //     password: event.target.querySelector("input[name=password]").value,
-        // }
 
         let les_log = {
             email: mon_email,
@@ -52,52 +48,6 @@ function IDtoken (){
         .catch(()=> {
             alert("Une erreur est survenue")
         })
-        
     })
 }
-
 IDtoken()
-
-
-// function login(){
-//     console.log("je suis rentré dans la fonction login")
-
-//     const token = window.localStorage.getItem("token")
-//     // console.log(token)
-
-//     console.log(valeurToken.token)
-
-
-//     if (token === valeurToken.token){
-//         console.log("vos id sont bon")
-    
-//         // const ma_valeur_token = window.localStorage.getItem("token")
-//         // console.log(ma_valeur_token)
-    
-        
-        
-//         // window.location.href="index.html"
-//     }
-    
-//     if(email != "sophie.bluel@test.tld" && mdp != "S0phie"){
-//         console.log("Votre identifiant ou votre mot de passe sont incorrect")
-//         const mdp_oublie = document.querySelector(".mdp_oublie")
-//         let erreur_element = document.createElement("p")
-//         mdp_oublie.innerHTML = ""
-    
-//         erreur_element.innerText = `Votre identifiant est incorect`
-//         mdp_oublie.appendChild(erreur_element)
-//     }
-    
-//     if(mdp != "S0phie"){
-//         console.log("Votre identifiant ou votre mot de passe sont incorrect")
-//         const mdp_oublie = document.querySelector(".mdp_oublie")
-//         let erreur_element = document.createElement("p")
-//         mdp_oublie.innerHTML = ""
-    
-//         erreur_element.innerText = `Votre mot de passe est incorect`
-//         mdp_oublie.appendChild(erreur_element)
-//     }
-
-// }
-
