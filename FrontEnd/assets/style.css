@@ -305,6 +305,29 @@ footer nav ul {
 	padding-right: 7px;
 }
 
+.connect_btn{
+	display: flex;
+	font-family: 'Syne';
+	font-weight: 700;
+	background-color: #1D6154;
+	color: white;
+	text-align: center;
+	border: solid 1px;
+	border-radius: 60px;
+	border-color:  #1D6154;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-right: 8px;
+	margin-bottom: 20px;
+}
+
+.text_forgotten_psswrd{
+	text-decoration: underline;
+	margin-bottom: 10px;
+}
+
 /*********** modale **************/
 
 .class_modal{
@@ -335,7 +358,7 @@ footer nav ul {
 .gallery_modal{
 	display: flex;
 	flex-wrap: wrap;
-	/* justify-content: space-between; */
+	/* justify-content: space-evenly; */
 	margin-left: 60px;
 	margin-right: 60px;
 
@@ -345,18 +368,49 @@ footer nav ul {
 	width: 100%;
 }
 
+.gallery_modal figure{
+	display: flex;
+}
+
 .modal_wrapper img{
 	width: 78px;
 	height: auto;
 	margin-right: 5px;
 	margin-left: 5px;
 	margin-top: 30px;
+
+	position: static;
 }
 
-.upper_button button{
+#form-image-preview{
+	width: 30%;
+	margin: 0;
+}
+
+.btn_trash_can{
+	display: flex;
+	height: 20px;
+	/* justify-content: center; */
+	align-items: center;
+	top: 34px;
+	right: 31px;
+	color: white;
+	background-color: black;
+	border: none;
+	border-radius: 2px;
+
+
+	position: relative;
+
+}
+
+
+.upper_button_page2{
 	border: transparent;
 	background-color: transparent;
 }
+
+
 
 .upper_button{
 	display: flex;
@@ -401,7 +455,14 @@ footer nav ul {
 }
 
 #back_button{
+	width: 40px;
+	border: transparent;
+	background-color: transparent;
 	color: black;
+}
+
+#back_button:hover{
+	background-color: grey;
 }
 
 .main_modal_2{
@@ -439,7 +500,8 @@ footer nav ul {
 #label_add_pic{
 	display: flex;
 	align-self: center;
-	margin-top: 7px;
+	margin-top: 10px;
+	margin-bottom: 15px;
 }
 
 .form_add_pic label{
@@ -464,4 +526,53 @@ footer nav ul {
 .mdp_oublie p{
 	color: red;
 	margin-top: 10px;
+}
+
+#logo_preview{
+	margin-top: 0px;
+}
+
+
+.btn_add_pic_hidden{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #CBD6DC;
+	border: none;
+	border-radius: 30px;
+	width: 50%;
+	margin-top: 15px;
+}
+
+.btn_add_pic_hidden label{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.txt_btn_add_pic{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 0;
+	position: relative;
+	left: 10px;
+	height: 100%;
+	width: 1500px;
+	color: #306685;
+	font-size: 14px;
+	font-weight: 600;
+	
+}
+
+.btn_add_pic{
+	display: flex;
+	z-index: 1;
+	opacity: 0;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	/* right: 30px;
+	top: -20px; */
 }

@@ -41,7 +41,7 @@ function IDtoken (){
                 let erreur_element = document.createElement("p")
                 mdp_oublie.innerHTML = ""
     
-                erreur_element.innerText = `Votre identifiant ou votre mot de passse est incorect`
+                erreur_element.innerText = `Votre identifiant ou votre mot de passe est incorect`
                 mdp_oublie.appendChild(erreur_element)
                 }
         })

@@ -126,8 +126,8 @@
 
 			<div class="page_modal" style="display: none;">
 				<div class="upper_button">
-					<button class="back_button" id="back_button"><i class="fa-solid fa-arrow-left"></i></button>
-					<button class="close_button"><i class="fa-solid fa-xmark"></i></button>
+					<button class="back_button upper_button_page2" id="back_button"><i class="fa-solid fa-arrow-left"></i></button>
+					<button class="close_button upper_button_page2"><i class="fa-solid fa-xmark"></i></button>
 				</div>
 				<div class="main_modal_2">
 					<h3>Ajout photo</h3>
@@ -136,14 +136,20 @@
 						<div class="add_pic">
 							<i class="fa-regular fa-image" id="logo_preview" style="display: null;"></i>
 							<img src="#" id="form-image-preview" style="display: none;">
-							<input type="file" name="btn_add_pic" accept="image/png, image/jpg" class="btn_add_pic" id="btn_add_pic" >
+							<button class="btn_add_pic_hidden">
+								<label>
+									<p class="txt_btn_add_pic">+ Ajouter photo</p>
+									<input type="file" name="btn_add_pic" accept="image/png, image/jpg" class="btn_add_pic" id="btn_add_pic" >
+
+								</label>
+							</button>
 							<!-- <button class="btn_add_pic">+ Ajouter photo</button> -->
 							<label for="btn_add_pic" id="label_add_pic">jpg, png : 4mo max</label>
 						</div>
 						<label for="titre">Titre</label>
-						<input type="text" name="titre" class="input_log input_titre">
+						<input type="text" name="titre" class="input_log input_titre" id="input_titre">
 						<label for="categorie">Catégorie</label>
-						<select name="categorie" id="modal_select" class="modal_select input_log input_categorie">
+						<select name="categorie" id="input_categorie" class="modal_select input_log ">
 							<!-- <option value=""></option> -->
 							<!-- <option value="objets">Objets</option>
 							<option value="appartements">Appartements</option>
