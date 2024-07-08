@@ -185,18 +185,10 @@ function addPic(){
 
 
 
-        if(!photo || !titre || !categorie){
-            const mdp_oublie = document.querySelector(".mdp_oublie")
+        // if(!photo || !titre || !categorie){
+        //     return
+        // }
 
-            let erreur_element = document.createElement("p")
-            mdp_oublie.innerHTML = ""
-            
-            erreur_element.innerText = `Vous n'avez pas rempli tous les champs`
-            mdp_oublie.appendChild(erreur_element)
-
-            return
-        }
-    
         let formData = new FormData()
         formData.append("image", photo)
         formData.append("title", titre)
@@ -214,10 +206,10 @@ function addPic(){
             getWorks()
             empty()
             restore()
-            switchPanel(e)
+            // switchPanel(e)
         })
         .catch(()=> {
-            alert("bleu")
+            alert("Une erreur dans l'ajout d'image est survenue")
         })
     })
 }
@@ -249,7 +241,7 @@ function restore (){
     let preview = document.getElementById("form-image-preview")
     let btn = document.querySelector(".btn_add_pic_hidden")
     let label = document.getElementById("label_add_pic")
-     
+
     logo.setAttribute("style", "display: null;")
     btn.setAttribute("style", "display: null;")
     label.setAttribute("style", "display: null;")
@@ -275,6 +267,23 @@ function empty(){
         }else{
             apply_button.setAttribute("style", "background-color: #1D6154;")
             mdp_oublie.innerHTML = ""
+        }
+    })
+
+
+
+    apply_button.addEventListener("click", ()=>{
+        let image = document.querySelector(".btn_add_pic").value
+        let titre = document.querySelector(".input_titre").value
+        let categorie = document.getElementById("input_categorie").value
+        if(!image || !titre || !categorie){
+            const mdp_oublie = document.querySelector(".mdp_oublie")
+
+            let erreur_element = document.createElement("p")
+            mdp_oublie.innerHTML = ""
+            
+            erreur_element.innerText = `Vous n'avez pas rempli tous les champs`
+            mdp_oublie.appendChild(erreur_element)
         }
     })
 }
