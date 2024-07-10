@@ -1,17 +1,14 @@
 import { switchPanel } from "./modale.js"
 
-// const app = require("../Backend/app")
 
 let works = []
 
 function getWorks(){
     fetch("http://localhost:5678/api/works/")
     .then((response)=>{
-        // console.log(response)
         return response.json()
     })
     .then((data)=>{
-        // console.log(data)
         works = data
 
         afficherWork()
@@ -27,11 +24,9 @@ getWorks()
 let categories = []
 fetch("http://localhost:5678/api/categories/")
 .then((response)=>{
-    // console.log(response)
     return response.json()
 })
 .then((data)=>{
-    // console.log(data)
     categories = data
 
     afficherCategories()
@@ -120,7 +115,6 @@ function afficherWorkModal(id = null){
         
         const image_temporaire = workstoshow[i]
         const ArticleElement = document.createElement("figure")
-        // ArticleElement.setAttribute("display", "flex")
 
         const imageElement = document.createElement("img")
         imageElement.src = image_temporaire.imageUrl
@@ -183,12 +177,6 @@ function addPic(){
         let categorie = document.querySelector("select[name='categorie']").value
         let photo = document.getElementById("btn_add_pic").files[0]
 
-
-
-        // if(!photo || !titre || !categorie){
-        //     return
-        // }
-
         let formData = new FormData()
         formData.append("image", photo)
         formData.append("title", titre)
@@ -206,7 +194,6 @@ function addPic(){
             getWorks()
             empty()
             restore()
-            // switchPanel(e)
         })
         .catch(()=> {
             alert("Une erreur dans l'ajout d'image est survenue")
@@ -269,8 +256,6 @@ function empty(){
             mdp_oublie.innerHTML = ""
         }
     })
-
-
 
     apply_button.addEventListener("click", ()=>{
         let image = document.querySelector(".btn_add_pic").value

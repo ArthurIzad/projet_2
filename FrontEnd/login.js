@@ -22,11 +22,9 @@ function IDtoken (){
             body: chargeUtile
         })
         .then((response)=>{
-            // console.log(response)
             return response.json()
         })
         .then((data)=>{
-            // console.log(data)
             valeurToken = data
             mon_token = valeurToken.token
             window.localStorage.setItem("token", mon_token)

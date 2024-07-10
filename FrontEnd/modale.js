@@ -23,21 +23,8 @@ const openModal = function(e) {
         button.addEventListener("click", closeModal)
     })
     modal.querySelector(".modal_stop").addEventListener("click", stopPropagation)
-    
 }
 
-// export const closeModal = function(e) {
-//     if (modal === null) return
-//     e.preventDefault()
-//     modal.style.display = "none"
-//     modal.removeEventListener("click", closeModal)
-//     modal.querySelectorAll(".close_button").forEach(button =>{
-//         button.removeEventListener("click", closeModal)
-//     })
-//     modal.querySelector(".modal_stop").removeEventListener("click", stopPropagation)
-//     modal = null
-
-// }
 
 
 export function closeModal(e) {
@@ -50,7 +37,6 @@ export function closeModal(e) {
     })
     modal.querySelector(".modal_stop").removeEventListener("click", stopPropagation)
     modal = null
-
 }
 
 const stopPropagation = function (e) {
