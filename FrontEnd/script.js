@@ -144,6 +144,7 @@ function deletePic(){
         btn_trash_can[i].addEventListener("click", (e)=>{
             e.preventDefault
             let chargeUtile = works[i].id
+            console.log(chargeUtile)
             fetch(`http://localhost:5678/api/works/${chargeUtile}`, {
                 method:"DELETE",
                 headers:{
