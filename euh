@@ -1,0 +1,72 @@
+Error:  
+Logging at level: debug 
+GitHub Pages: github-pages v232 GitHub 
+Pages: jekyll v3.10.0 
+Theme: jekyll-theme-primer 
+Theme source: /usr/local/bundle/gems/jekyll-theme-primer-0.6.0 
+Requiring: jekyll-github-metadata 
+Requiring: jekyll-seo-tag 
+Requiring: jekyll-coffeescript 
+Requiring: jekyll-commonmark-ghpages 
+Requiring: jekyll-gist 
+Requiring: jekyll-github-metadata 
+Requiring: jekyll-paginate 
+Requiring: jekyll-relative-links 
+Requiring: jekyll-optional-front-matter 
+Requiring: jekyll-readme-index 
+Requiring: jekyll-default-layout 
+Requiring: jekyll-titles-from-headings 
+GitHub Metadata: Initializing... 
+Source: /github/workspace/. 
+Destination: /github/workspace/./_site 
+Incremental build: disabled. Enable with --incremental Generating... 
+Generating: JekyllOptionalFrontMatter::Generator finished in 0.028401644 seconds. 
+Generating: JekyllReadmeIndex::Generator finished in 0.461027767 seconds. 
+Generating: Jekyll::Paginate::Pagination finished in 8.246e-06 seconds. 
+GitHub Metadata: Generating for ArthurIzad/projet_2 GitHub 
+Metadata: Calling @client.pages("ArthurIzad/projet_2", {}) 
+Generating: JekyllRelativeLinks::Generator finished in 1.750076468 seconds. 
+Generating: JekyllDefaultLayout::Generator finished in 0.004455399 seconds. 
+Requiring: kramdown-parser-gfm Generating: JekyllTitlesFromHeadings::Generator finished in 0.125021766 seconds. 
+Rendering: assets/css/style.scss 
+Pre-Render Hooks: assets/css/style.scss 
+Rendering Markup: assets/css/style.scss 
+Rendering: Backend/node_modules/@mapbox/node-pre-gyp/CHANGELOG.md 
+Pre-Render Hooks: Backend/node_modules/@mapbox/node-pre-gyp/CHANGELOG.md 
+Rendering Markup: Backend/node_modules/@mapbox/node-pre-gyp/CHANGELOG.md 
+Rendering Layout: Backend/node_modules/@mapbox/node-pre-gyp/CHANGELOG.md 
+Layout source: theme GitHub 
+Metadata: Calling @client.repository("ArthurIzad/projet_2", {:accept=>"application/vnd.github.drax-preview+json"}) 
+Rendering: Backend/node_modules/accepts/HISTORY.md 
+Pre-Render Hooks: Backend/node_modules/accepts/HISTORY.md 
+Rendering Markup: Backend/node_modules/accepts/HISTORY.md 
+Rendering Layout: Backend/node_modules/accepts/HISTORY.md 
+Layout source: theme Rendering: Backend/node_modules/agentkeepalive/History.md 
+Pre-Render Hooks: Backend/node_modules/agentkeepalive/History.md 
+Rendering Markup: Backend/node_modules/agentkeepalive/History.md 
+Rendering Layout: Backend/node_modules/agentkeepalive/History.md 
+Layout source: theme Rendering: Backend/node_modules/agentkeepalive/node_modules/depd/History.md 
+Pre-Render Hooks: Backend/node_modules/agentkeepalive/node_modules/depd/History.md 
+Rendering Markup: Backend/node_modules/agentkeepalive/node_modules/depd/History.md 
+Rendering Layout: Backend/node_modules/agentkeepalive/node_modules/depd/History.md 
+Layout source: theme Rendering: Backend/node_modules/ansi-align/CHANGELOG.md 
+Pre-Render Hooks: Backend/node_modules/ansi-align/CHANGELOG.md 
+Rendering Markup: Backend/node_modules/ansi-align/CHANGELOG.md 
+Rendering Layout: Backend/node_modules/ansi-align/CHANGELOG.md 
+Layout source: theme Rendering: Backend/node_modules/aproba/CHANGELOG.md 
+Pre-Render Hooks: Backend/node_modules/aproba/CHANGELOG.md Rendering 
+Markup: Backend/node_modules/aproba/CHANGELOG.md 
+Rendering Layout: Backend/node_modules/aproba/CHANGELOG.md 
+Layout source: theme Rendering: Backend/node_modules/argparse/CHANGELOG.md 
+Pre-Render Hooks: Backend/node_modules/argparse/CHANGELOG.md 
+Rendering Markup: Backend/node_modules/argparse/CHANGELOG.md 
+Rendering Layout: Backend/node_modules/argparse/CHANGELOG.md 
+Layout source: theme Rendering: Backend/node_modules/bcrypt/CHANGELOG.md 
+Pre-Render Hooks: Backend/node_modules/bcrypt/CHANGELOG.md 
+Rendering Markup: Backend/node_modules/bcrypt/CHANGELOG.md 
+Rendering Layout: Backend/node_modules/bcrypt/CHANGELOG.md 
+Layout source: theme Rendering: Backend/node_modules/bcrypt/SECURITY.md 
+Pre-Render Hooks: Backend/node_modules/bcrypt/SECURITY.md 
+Rendering Markup: Backend/node_modules/bcrypt/SECURITY.md 
+Rendering Layout: Backend/node_modules/bcrypt/SECURITY.md 
+Layout source: theme Rendering: Backend/node_modules/bcrypt/node_modules/node-addon-api/CHANGELOG
